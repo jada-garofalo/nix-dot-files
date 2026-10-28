@@ -92,22 +92,11 @@ for i in groups:
 layouts = [
     layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
     font="JetBrains Mono",
-    fontsize=18,
+    fontsize=24,
     padding=4,
 )
 extension_defaults = widget_defaults.copy()
@@ -174,7 +163,7 @@ wl_input_rules = None
 
 # xcursor theme (string or None) and size (integer) for Wayland backend
 wl_xcursor_theme = None
-wl_xcursor_size = 24
+wl_xcursor_size = 28
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
