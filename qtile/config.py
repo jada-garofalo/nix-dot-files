@@ -9,6 +9,14 @@ terminal = guess_terminal()
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
+    # Brightness
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
+    # Volume
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -q set Master 5%+")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q set Master 5%-")),
+    Key([], "XF86AudioMute", lazy.spawn("amixer -q set toggle")),
+
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -51,10 +59,10 @@ keys = [
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    #Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "b", lazy.spawn("firefox")),
-    Key([mod], "f", lazy.spawn("pcmanfm")),
-    Key([mod], "d", lazy.spawn("rofi -show drun")),
+    Key([mod], "e", lazy.spawn("pcmanfm")),
+    Key([mod], "r", lazy.spawn("rofi -show drun")),
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -119,8 +127,8 @@ screens = [
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
             ],
             24,
-            border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            #border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+            #border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
     ),
 ]
@@ -163,7 +171,7 @@ wl_input_rules = None
 
 # xcursor theme (string or None) and size (integer) for Wayland backend
 wl_xcursor_theme = None
-wl_xcursor_size = 28
+wl_xcursor_size = 36
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
