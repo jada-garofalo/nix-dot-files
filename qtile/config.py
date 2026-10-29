@@ -15,7 +15,7 @@ keys = [
     # Volume
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -q set Master 5%+")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q set Master 5%-")),
-    Key([], "XF86AudioMute", lazy.spawn("amixer -q set toggle")),
+    Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
 
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
