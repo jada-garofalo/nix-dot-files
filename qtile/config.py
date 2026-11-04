@@ -59,9 +59,6 @@ keys = [
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    #Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    Key([mod], "b", lazy.spawn("firefox")),
-    Key([mod], "e", lazy.spawn("pcmanfm")),
     Key([mod], "r", lazy.spawn("rofi -show drun")),
 ]
 
@@ -123,12 +120,10 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.StatusNotifier(),
+                #widget.StatusNotifier(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
             ],
             24,
-            #border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            #border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
     ),
 ]
@@ -171,7 +166,7 @@ wl_input_rules = None
 
 # xcursor theme (string or None) and size (integer) for Wayland backend
 wl_xcursor_theme = None
-wl_xcursor_size = 36
+wl_xcursor_size = 48
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
